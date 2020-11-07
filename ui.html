@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+	.top-section{
+		margin: 3rem 0rem;
+}
+.switch-box {
+    width: 70px;
+    height: 30px;
+    background: #0095ff;
+    position: relative;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 25px;
+    transition: .5s ease-in ease-out;
+}
+.inner-switch-box{
+	background: #fff;
+	width: 35px;
+	height: 30px;
+	border-radius: 50%;
+	padding: 0px;
+	position: absolute;
+}
+.darkmode{
+	background: #000;
+}
+
+.circle{
+	width: 400px;
+	height: 400px
+	margin:auto;
+	background-color: red;
+}
+.inner-circle{
+	width: 200px;
+	height: 200px
+	margin:auto;
+	background-color: #000;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    font-family: monospace;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0px 0px 30px 2px grey;
+}
+
+#box {
+    border: 5px double lightgrey;
+    border-top: none;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    min-height: 100px;
+    background-color: azure;
+}
+
+.ball {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+</style>
+<body>
+
+<section class="top-section">
+<div class="switch-box" onclick="func()">
+	<div class="inner-switch-box" id="qwerty">
+	</div>
+</div>
+</section>
+<section class="top-section">
+    <div class="switch-box" onclick="func()">
+        <div class="inner-switch-box" id="qwerty">
+        </div>
+    </div>
+    </section>
+
+
+<section id="addball">
+<button type="submit">Add Ball To Basket</button>
+        
+        <div id="box">
+        	
+        </div>
+</section>
+
+<script type="text/javascript">
+var colors = ['red', 'blue', 'yellow', 'lightgrey', 'darkorchid', 'black', 'orange', 'deeppink', 'green', 'purple', 'saddlebrown', 'lightseagreen', 'deepskyblue', 'firebrick', 'crimson'];
+
+var box = $("#box");
+
+$("button").click(function(e) {
+    box.append('<div class="ball" style="background-color: ' + colors[Math.floor(Math.random()*15)] + '"></div>');
+});
+
+</script>
+
+
+
+<script type="text/javascript">
+var d= false; 
+function func(){
+    var id=$('#qwerty'); 
+    if(d==false){ 
+        id.css('transform','translateX(38px)'); 
+        $("body").css('background-color','black');
+        d=true; 
+    }
+    else{ 
+        id.css('transform','translateX(0px)');
+        $("body").css('background-color','white');
+        d=false; 
+    } 
+}
+</script>
+<!-- <script type="text/javascript">
+	var d=false;
+	
+	function func() {
+		var element=document.getElementById("qwerty");
+		if(d==false)
+		{
+			console.log("on");
+		element.style.transform="translateX(30px)";
+		element.style.transition=".4s ease-in-out"
+		document.body.style.background="#000";
+		d=true;
+	}
+	else{
+		console.log("off");
+		element.style.transform="translateX(0px)";
+		document.body.style.background="#fff";
+		d=false;
+	}
+}
+
+</script> -->
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+</body>
+</html>
+</body>
